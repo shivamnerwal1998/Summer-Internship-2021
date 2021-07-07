@@ -45,6 +45,27 @@ BST *findMin( BST *tree ){
     return tree ;
 
 } ;
+
+// level order traversal of binary search tree
+
+void level_Order_Traversal( BST *tree )
+{
+    if( tree == NULL ) return ;
+    queue <BST *> Q ;
+    Q.push( tree );
+    Q.push(NULL) ;
+    while( Q.empty()== false ){
+        BST *node = Q.front();
+        cout<< node->info <<"\t" ;
+        Q.pop();
+        if( node->left != NULL )
+            Q.push( node->left ) ;
+        if( node->right != NULL )
+            Q.push( node->right );
+    }
+
+}
+
 void deleteNode( BST **tree , int element)
 {
     if( *tree == NULL  ){
