@@ -65,6 +65,18 @@ void level_Order_Traversal( BST *tree )
     }
 
 }
+// mirror image of binary search tree
+void mirrorImage( BST **root ){
+
+        if( (*root) != NULL ){
+            mirrorImage( &(*root)->left ) ;
+            mirrorImage( &(*root)->right ) ;
+            BST *node = (*root)->left ;
+            (*root)->left = (*root)->right ;
+            (*root)->right = node ;
+        }
+
+}
 
 void deleteNode( BST **tree , int element)
 {
